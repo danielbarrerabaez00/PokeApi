@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
@@ -17,9 +17,9 @@
         $pokemon = json_decode($datos);
 
         if ($datos == "") {
-            // header("location: pokeApi2023.php?error=error",TRUE,301);
+            // header("location: index.php?error=error",TRUE,301);
             // exit();
-            echo "<meta http-equiv='refresh' content='0;url=pokeApi2023.php?error=error'>";
+            echo "<meta http-equiv='refresh' content='0;url=index.php?error=error'>";
         } else {
             if ($pokemon->types[0]->type->name != null) { ?>
                 <div class="principal">
@@ -34,14 +34,14 @@
                             <!-- Sprit -->
                             <div class="sprit">
                                 <div class="anterior">
-                                    <form action="pokeApi2023.php" method="POST">
+                                    <form action="index.php" method="POST">
                                         <input type="text" hidden value="<?= ($pokemon->id) - 1; ?>" name="nombre">
                                         <input type="submit" value="<--" class="botoncito_anterior">
                                     </form>
                                 </div>
                                 <?php echo "<img src='" . $pokemon->sprites->front_default . "'>"; ?>
                                 <div class="siguiente">
-                                    <form action="pokeApi2023.php" method="POST">
+                                    <form action="index.php" method="POST">
                                         <input type="text" hidden value="<?= ($pokemon->id) + 1; ?>" name="nombre">
                                         <input type="submit" value="-->" class="botoncito_siguiente">
                                     </form>
@@ -68,10 +68,10 @@
                                 //Altura
                                 echo "<b>Height:</b> " . ($pokemon->height) / 10 . "m <br><br>";
                                 ?>
-                                <form action="pokeApi2023.php" method="POST">
+                                <form action="index.php" method="POST">
                                     <input type="submit" value="Volver a la busqueda" class="botoncito">
                                 </form>
-                                <form action="pokeApi2023.php" method="POST">
+                                <form action="index.php" method="POST">
                                     <input type="text" hidden value="<?= rand(1, 1008); ?>" name="nombre">
                                     <input type="submit" value=" Realizar busqueda aleatoria " class="botoncito">
                                 </form>
@@ -109,7 +109,7 @@
             <div class="medio">
                 <div class="busqueda">
                     <h1>Pokedex</h1><br><br>
-                    <form action="pokeApi2023.php" method="POST">
+                    <form action="index.php" method="POST">
                         <span>Introduce un pokemon o su id: </span><br>
                         <?php
                         if (isset($_REQUEST["error"])) {
@@ -122,7 +122,7 @@
                     </form>
 
 
-                    <form action="pokeApi2023.php" method="POST">
+                    <form action="index.php" method="POST">
                         <span>Pulsa para leer una entrada aleatoria:</span>
                         <input type="text" hidden value="<?= rand(1, 1008); ?>" name="nombre">
                         <input type="submit" value=" Realizar busqueda aleatoria " class="botoncito">
